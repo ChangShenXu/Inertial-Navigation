@@ -1,4 +1,5 @@
-# Inertial-Navigation
+Inertial-Navigation
+======
 Intertial-Navigation simulation with Matlab
 # 关于这个项目
 
@@ -6,7 +7,10 @@ Intertial-Navigation simulation with Matlab
 1. 建立惯性导航里经常使用的坐标系模型（2017-12-25完成）
 2. 9.9.1仿真（2017-12-25提出 2018-1-1完成）所需数据可以联系我1054058788@qq.com
 3. 把书上所需的公式编出来，保存为函数，并对比与库函数的差别
-3.1 四元数乘法（P269 9.3.40）（2018-1-1提出）
+4. 四元数乘法（P269 9.3.40）（2018-1-1提出 2018-1-2完成）
+5. 根据`姿态矩阵`解算`姿态角`(P252 9.2.41)(2018-1-2提出 )
+
+
  最终目的是，使自己了解这个领域，找到创新点
 ## 更新速度
 1. 项目会持续不断更新，上传自己的学习内容和想法
@@ -20,6 +24,7 @@ Intertial-Navigation simulation with Matlab
 ## body_axis.m 2017-12-25
 1. 目的在于直观看到e系、g系之间的关系。
 2. 在编写过程中，混淆了坐标变换矩阵、和过渡矩阵的概念（当时曾一度以为线代无用。。）
+
 ## main_Coarse_alignment.m Coarse_alignment.m 2018-1-1
 1. 两次去求助师兄帮忙，师兄很热心
 2. 第一次，matlab库函数公式有差别，使用之前要明确知道其源代码和自己所要完成的内容一致。
@@ -27,3 +32,12 @@ Intertial-Navigation simulation with Matlab
 4. 代码运行结果不正确，要质疑每一句话，公式一个符号、一个下标地去检查，往往就是书写错误。
 5. 高级点的错误是逻辑错误，在高级点的错误是想法错误（这种错误才可以去麻烦师兄）
 6. 请人帮忙之后要说，谢谢，不能觉得理所应当。
+
+## 四元数乘法库函数 2018-1-2
+    q = quatnormalize([1 2 3 4]);
+    Q = quatnormalize([2 3 4 5]);
+    qout1 = quatmultiply(Q,q); %库函数
+    qout2 = M'(q)\*Q; %公式(P269 9.3.40)
+结果相同，没必要自己编写函数代码。
+ 
+
